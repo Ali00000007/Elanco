@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Country Flag</title>
+</head>
+<body>
+    <h1>Search for a Country's Flag</h1>
+    <form method="POST" action="/flag">
+        <label for="country">Enter a country name:</label>
+        <input type="text" id="country" name="country" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if result %}
+    <div style="margin-top: 20px;">
+        {% if result.error %}
+        <p style="color: red;">{{ result.error }}</p>
+        {% else %}
+        <h2>Result:</h2>
+        <p>Country: {{ result.name }}</p>
+        <img src="{{ result.flag }}" alt="Flag of {{ result.name }}" style="width: 100px; height: auto;">
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
