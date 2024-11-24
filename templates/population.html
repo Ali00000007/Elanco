@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population Data</title>
+</head>
+<body>
+    <button onclick="location.href='/'">Home</button>
+    <h1>Population Data by City</h1>
+    {% for city in data %}
+    <div class="container">
+        <h3>Country: {{ city['country'] }}, City: {{ city['city'] }}</h3>
+        <ul>
+            {% for population in city['populationCounts'] %}
+            <li>Year: {{ population['year'] }}, Population: {{ population['value'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>
